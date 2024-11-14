@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Software-Development-Technologies", "Software-Development-Technologies\Software-Development-Technologies.csproj", "{6D75B6A6-F8D8-4AB5-A695-7DD23DC9B9BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6D75B6A6-F8D8-4AB5-A695-7DD23DC9B9BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{97A05E7A-EB8B-4522-8747-6F5668B31A64}"
 EndProject
