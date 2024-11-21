@@ -21,7 +21,7 @@ public class BaseRepositoryUnitTests
             .Returns(mockSet.Object);
         var repository = new EmployeeRepository(mockContext.Object);
         Employee expectedEmployee = new Employee();
-        
+
         // Act
         await repository.Create(expectedEmployee);
 
@@ -46,10 +46,10 @@ public class BaseRepositoryUnitTests
         };
         mockSet.Setup(mock => mock.FindAsync(expectedEmployee.Id))
             .ReturnsAsync(expectedEmployee);
-        
+
         // Act
         var actualEmployee = await repository.GetById(expectedEmployee.Id);
-        
+
         // Assert
         mockSet.Verify(dbset => dbset.FindAsync(expectedEmployee.Id), Times.Once);
         Assert.Equal(expectedEmployee.Id, actualEmployee.Id);
@@ -72,9 +72,10 @@ public class BaseRepositoryUnitTests
         };
         mockSet.Setup(mock => mock.FindAsync(expectedEmployee.Id))
             .ReturnsAsync(expectedEmployee);
+
         // Act
         await repository.Delete(expectedEmployee.Id);
-        
+
         // Assert
         mockSet.Verify(dbset => dbset.FindAsync(expectedEmployee.Id), Times.Once);
         mockSet.Verify(dbset => dbset.Remove(expectedEmployee), Times.Once);

@@ -9,15 +9,15 @@ public class Employee
     [Column("id")]
     public int Id { get; set; }
     [Column("name")]
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; set; }
     [Column("surname")]
-    public string Surname { get; set; } = string.Empty;
+    public string Surname { get; set; }
     [Column("email")]
-    public string? Email { get; set; }
+    public string Email { get; set; }
     [Column("password")]
-    public string Password { get; set; } = string.Empty;
+    public string? Password { get; set; }
     [Column("phone")]
-    public string? Phone { get; set; }
+    public string Phone { get; set; }
     [Column("role")]
     public Role Role { get; set; }
 }

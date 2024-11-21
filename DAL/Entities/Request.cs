@@ -16,7 +16,7 @@ public class Request
     [Column("end_date")]
     public DateOnly DateEnd { get; set; }
     [Column("comment")]
-    public string Comment { get; set; } = string.Empty;
+    public string Comment { get; set; }
     [ForeignKey("Employee")]
     public int EmployeeId { get; set; }
     public Employee? Employee { get; set; }

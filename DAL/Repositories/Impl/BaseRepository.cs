@@ -14,7 +14,7 @@ public class BaseRepository<T> : IRepository<T> where T : class
         _set = context.Set<T>();
         _context = context;
     }
-    
+
     public async Task Create(T entity)
     {
         await _set.AddAsync(entity);
@@ -46,7 +46,7 @@ public class BaseRepository<T> : IRepository<T> where T : class
         int pageNumber = 0,
         int pageSize = 10)
     {
-        return  _set.Where(predicate)
+        return _set.Where(predicate)
             .Skip(pageSize * pageNumber)
             .Take(pageNumber)
             .ToList();
