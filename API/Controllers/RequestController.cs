@@ -1,6 +1,7 @@
 ﻿using BLL.DTOs;
 using BLL.Services.Interfaces;
 using DAL.Enums;
+using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Software_Development_Technologies.Controllers;
@@ -93,6 +94,23 @@ public class RequestController : ControllerBase
             _logger.LogError(ex, ex.Message);
 
             return BadRequest();
+        }
+    }
+
+    [HttpDelete("requests/{id}")]
+    public async Task<IActionResult> DeleteRequest(int id)
+    {
+        try
+        {
+            await _service.DeleteRequestAsync(id);
+
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            
+            return BadRequest(ex.Message);
         }
     }
 }

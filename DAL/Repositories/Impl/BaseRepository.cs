@@ -20,7 +20,7 @@ public class BaseRepository<T> : IRepository<T> where T : class
         await _set.AddAsync(entity);
     }
 
-    public async Task<T> GetById(int id)
+    public async Task<T?> GetById(int id)
     {
         return await _set.FindAsync(id);
     }

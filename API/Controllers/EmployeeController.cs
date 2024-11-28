@@ -61,4 +61,21 @@ public class EmployeeController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpDelete("employees/{id}")]
+    public async Task<IActionResult> DeleteEmployee(int id)
+    {
+        try
+        {
+            await _service.DeleteEmployeeAsync(id);
+
+            return Ok();
+        }
+        catch (ApplicationException ex)
+        {
+            _logger.LogError(ex, ex.Message);
+
+            return BadRequest(ex.Message);
+        }
+    }
 }

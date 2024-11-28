@@ -10,4 +10,5 @@ public interface IRequestService
     Task CreateRequestAsync(RequestDto requestDto);
     Task UpdateRequestAsync(RequestDto requestDto);
     Task ChangeRequestStatusAsync(int requestId, RequestStatus status);
+    Task DeleteRequestAsync(int requestId);
 }

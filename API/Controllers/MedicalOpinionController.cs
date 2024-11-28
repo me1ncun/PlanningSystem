@@ -78,4 +78,21 @@ public class MedicalOpinionController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpDelete("medicalOpinions/{id}")]
+    public async Task<IActionResult> DeleteMedicalOpinion(int id)
+    {
+        try
+        {
+            await _service.DeleteMedicalOpinion(id);
+
+            return Ok();
+        }
+        catch (ApplicationException ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            
+            return BadRequest(ex.Message);
+        }
+    }
 }

@@ -7,4 +7,5 @@ public interface IEmployeeService
     IEnumerable<EmployeeDto> GetEmployeesFiltered(int pageNumber);
     Task<EmployeeDto> GetEmployeeByIdAsync(int id);
     Task CreateEmployeeAsync(EmployeeDto employeeDto);
+    Task DeleteEmployeeAsync(int id);
 }

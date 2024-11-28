@@ -65,4 +65,16 @@ public class EmployeeService : IEmployeeService
         User user = new User(employee.Id, new List<Role>() { Role.Employee });
         SecurityContext.SetUser(user);
     }
+
+    public async Task DeleteEmployeeAsync(int id)
+    {
+        var employee = await _repository.GetById(id);
+        if (employee is null)
+        {
+            throw new ApplicationException("Employee not found");
+        }
+
+        await _repository.Delete(employee.Id);
+        await _unitOfWork.SaveChanges();
+    }
 }

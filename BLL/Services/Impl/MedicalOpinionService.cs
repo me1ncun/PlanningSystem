@@ -72,4 +72,16 @@ public class MedicalOpinionService : IMedicalOpinionService
 
         return _mapper.Map<MedicalOpinionDto>(medicalOpinion);
     }
+
+    public async Task DeleteMedicalOpinion(int id)
+    {
+        var medicalOpinion = await _repository.GetById(id);
+        if (medicalOpinion is null)
+        {
+            throw new ApplicationException("MedicalOpinion not found");
+        }
+        
+        await _repository.Delete(medicalOpinion.Id);
+        await _unitOfWork.SaveChanges();
+    }
 }

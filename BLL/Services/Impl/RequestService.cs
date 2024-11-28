@@ -98,4 +98,16 @@ public class RequestService : IRequestService
         _repository.Update(request);
         await _unitOfWork.SaveChanges();
     }
+
+    public async Task DeleteRequestAsync(int requestId)
+    {
+        var request = await _repository.GetById(requestId);
+        if (request is null)
+        {
+            throw new ApplicationException("Request not found");
+        }
+        
+        await _repository.Delete(request.Id);
+        await _unitOfWork.SaveChanges();
+    }
 }
